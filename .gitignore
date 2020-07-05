@@ -15,6 +15,9 @@ find.log
 .AppleDouble
 .LSOverride
 
+### .env ###
+**/.env
+
 ### nodejs ###
 **/node_modules
 **/package-lock.json
