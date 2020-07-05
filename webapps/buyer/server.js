@@ -1,7 +1,7 @@
 var express = require("express");
 var app = express(),
     port = 3002;
-const buyer = require('./buyer/routes/buyer.js');
+const buyer = require('./routes/buyer.js');
 
 app.use('/buyer', buyer);
 app.use(express.json());

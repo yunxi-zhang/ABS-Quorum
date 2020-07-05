@@ -1,7 +1,7 @@
 var express = require("express");
 var app = express(),
     port = 3001;
-const bank = require('./bank/routes/bank.js');
+const bank = require('./routes/bank.js');
 
 app.use('/bank', bank);
 app.use(express.json());
