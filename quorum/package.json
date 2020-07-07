@@ -1,0 +1,16 @@
+{
+    "name": "blockchain-ethereum-template",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "coverage": "npx truffle run coverage",
+        "test": "truffle test"
+    },
+    "dependencies": {
+        "dotenv": "^8.2.0",
+        "fs": "0.0.1-security",
+        "truffle": "5.1.23",
+        "truffle-assertions": "0.9.2",
+        "web3": "1.2.7"
+    }
+}
