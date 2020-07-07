@@ -6,7 +6,7 @@ dotenv.config();
 module.exports = {
 
   networks: {
-    arg: {
+    bankBuyerSeller: {
       provider: new Web3.providers.HttpProvider(provider),
       network_id: "*",
       gas: 700000000,
