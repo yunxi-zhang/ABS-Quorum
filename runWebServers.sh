@@ -33,7 +33,7 @@ fi
 ls -al webappbuyer
 
 stepInfo "Run npm install in the webapp as a template web server"
-cd ./webapps
+cd ./webapp
 npm install
 cd ..
 
@@ -41,7 +41,7 @@ stepInfo "Show current path before creating new web server"
 pwd
 
 stepInfo "Creating A Web Server for Bank"
-cp -r ./webapps ./webappbank
+cp -r ./webapp ./webappbank
 stepInfo "Show files in webappbank"
 cd ./webappbank
 pwd
@@ -63,7 +63,7 @@ cd ../..
 pwd
 
 stepInfo "Creating A Web Server for Buyer"
-cp -r ./webapps ./webappbuyer
+cp -r ./webapp ./webappbuyer
 stepInfo "Show files in webappbank"
 cd ./webappbuyer
 pwd
@@ -85,7 +85,7 @@ cd ../..
 pwd
 
 stepInfo "Creating A Web Server for Seller"
-cp -r ./webapps ./webappseller
+cp -r ./webapp ./webappseller
 stepInfo "Show files in webappseller"
 cd ./webappseller
 pwd
