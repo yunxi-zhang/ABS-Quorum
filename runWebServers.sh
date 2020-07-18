@@ -32,10 +32,28 @@ if [ -d webappbuyer ]; then
 fi
 ls -al webappbuyer
 
+stepInfo "Run npm install in the webapp as a template web server"
+cd ./webapps
+npm install
+cd ..
+
+stepInfo "Show current path before creating new web server"
+pwd
+
 stepInfo "Creating A Web Server for Bank"
-cd ./webapps/bank
+cp -r ./webapps ./webappbank
+stepInfo "Show files in webappbank"
+cd ./webappbank
 pwd
 ls -al 
+stepInfo "Show the new server.js and package.json in webappbank"
+ls -al server.js package.json
+stepInfo "Delete seller and buyer folders"
+rm -rf seller buyer
+stepInfo "Show seller and buyer folders are gone"
+ls -al seller buyer
+stepInfo "Go to bank folder"
+cd ./bank
 stepInfo "Show the new server.js and package.json in webappbank"
 ls -al server.js package.json
 stepInfo "Run npm start in the background"
@@ -45,10 +63,20 @@ cd ../..
 pwd
 
 stepInfo "Creating A Web Server for Buyer"
-cd ./webapps/buyer
+cp -r ./webapps ./webappbuyer
+stepInfo "Show files in webappbank"
+cd ./webappbuyer
 pwd
 ls -al 
 stepInfo "Show the new server.js and package.json in webappbuyer"
+ls -al server.js package.json
+stepInfo "Delete seller and bank folders"
+rm -rf seller bank
+stepInfo "Show seller and bank folders are gone"
+ls -al seller bank
+stepInfo "Go to buyer folder"
+cd ./buyer
+stepInfo "Show the new server.js and package.json in webappbank"
 ls -al server.js package.json
 stepInfo "Run npm start in the background"
 nohup npm start &
@@ -57,9 +85,19 @@ cd ../..
 pwd
 
 stepInfo "Creating A Web Server for Seller"
-cd ./webapps/seller
+cp -r ./webapps ./webappseller
+stepInfo "Show files in webappseller"
+cd ./webappseller
 pwd
 ls -al 
+stepInfo "Show the new server.js and package.json in webappbank"
+ls -al server.js package.json
+stepInfo "Delete bank and buyer folders"
+rm -rf bank buyer
+stepInfo "Show bank and buyer folders are gone"
+ls -al bank buyer
+stepInfo "Go to seller folder"
+cd ./seller
 stepInfo "Show the new server.js and package.json in webappseller"
 ls -al server.js package.json
 stepInfo "Run npm start in the background"
@@ -67,4 +105,5 @@ nohup npm start &
 stepInfo "go back to the root path"
 cd ../..
 pwd
+
 figlet Complete Setting Up Web Servers
