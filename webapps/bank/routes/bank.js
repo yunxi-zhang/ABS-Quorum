@@ -1,5 +1,6 @@
 var express = require('express');
 var cors = require('cors');
+const buyerContract = require('../invokeContracts/buyerContract');
 var router = express.Router();
 router.use(express.json());
 router.use(cors());
@@ -23,7 +24,8 @@ router.get("/sellerBalance", async (req, res, next) => {
 });
 
 router.get("/buyerBalance", async (req, res, next) => {
-    res.json({"api":"buyerBalance"});
+    const balance = await buyerContract.getBalance();
+    res.json({"balance": balance});
 });
 
 module.exports = router;
