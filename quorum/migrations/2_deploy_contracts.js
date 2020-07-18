@@ -1,12 +1,19 @@
 const buyer = artifacts.require("Buyer");
+const seller = artifacts.require("Seller");
 const fs = require("fs");
 
 module.exports = async function (deployer) {
     let buyerDeployedContractAddress;
+    let sellerDeployedContractAddress;
 
     await deployer.deploy(buyer).then(async function (receipt) {
         buyerDeployedContractAddress = receipt.address;
         console.log("The deployed Buyer contract address is:", buyerDeployedContractAddress);
+    });
+
+    await deployer.deploy(seller).then(async function (receipt) {
+        sellerDeployedContractAddress = receipt.address;
+        console.log("The deployed Seller contract address is:", sellerDeployedContractAddress);
     });
 
     // Save addresses in external file
@@ -14,6 +21,10 @@ module.exports = async function (deployer) {
         {
             filename: "./contractAddresses/buyerDeployedContractAddress.txt",  
             content: buyerDeployedContractAddress
+        },
+        {
+            filename: "./contractAddresses/sellerDeployedContractAddress.txt",  
+            content: sellerDeployedContractAddress
         }
     ]
 
