@@ -1,5 +1,6 @@
+const config = require("./config/config");
 const Web3 = require("web3");
-const NODE_ENDPOINT = process.env.PROVIDER;
+const NODE_ENDPOINT = config.absConfig.provider;
 
 module.exports = {
 
