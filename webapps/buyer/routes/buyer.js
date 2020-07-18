@@ -10,4 +10,9 @@ router.get("/balance", async (req, res) => {
     res.json({"balance": balance});
 });
 
+router.post("/updateBalance", async (req, res) => {
+    const contractReceipt = await buyerContract.updateBalance(req.body.value);
+    res.json({"status": 'success', transactionId: contractReceipt})
+});
+
 module.exports = router;
