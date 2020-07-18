@@ -8,7 +8,6 @@ const getBalance = async () => {
         return await web3.eth.personal.unlockAccount(ADDRESS, PASSWORD, 36000).then(async function (res) {
             const myContract = await getContract("Buyer");
             let balance = await myContract.methods.retreiveBalance().call();
-            console.log("buyer balance: ", balance);
             return balance;
         });
     } catch (e) {

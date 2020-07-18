@@ -6,8 +6,8 @@ router.use(express.json());
 router.use(cors());
 
 router.get("/balance", async (req, res) => {
-    const buyerContractReceipt = await buyerContract.getBalance();
-    res.json({"balance": buyerContractReceipt});
+    const balance = await buyerContract.getBalance();
+    res.json({"balance": balance});
 });
 
 module.exports = router;
