@@ -44,10 +44,9 @@ stepInfo "Creating A Web Server for Bank"
 cp -r ./webapp ./webappbank
 stepInfo "Show files in webappbank"
 cd ./webappbank
-cp -r ./config ./bank
-cp -r ./web3 ./bank
-rm -rf ./config
-rm -rf ./web3
+cp -r ./lib/config ./bank
+cp -r ./lib/web3 ./bank
+rm -rf ./lib
 pwd
 ls -al 
 stepInfo "Show the new server.js and package.json in webappbank"
@@ -70,10 +69,9 @@ stepInfo "Creating A Web Server for Buyer"
 cp -r ./webapp ./webappbuyer
 stepInfo "Show files in webappbank"
 cd ./webappbuyer
-cp -r ./config ./buyer
-cp -r ./web3 ./buyer
-rm -rf ./config
-rm -rf ./web3
+cp -r ./lib/config ./buyer
+cp -r ./lib/web3 ./buyer
+rm -rf ./lib
 pwd
 ls -al 
 stepInfo "Show the new server.js and package.json in webappbuyer"
@@ -96,10 +94,9 @@ stepInfo "Creating A Web Server for Seller"
 cp -r ./webapp ./webappseller
 stepInfo "Show files in webappseller"
 cd ./webappseller
-cp -r ./config ./seller
-cp -r ./web3 ./seller
-rm -rf ./config
-rm -rf ./web3
+cp -r ./lib/config ./seller
+cp -r ./lib/web3 ./seller
+rm -rf ./lib
 pwd
 ls -al 
 stepInfo "Show the new server.js and package.json in webappbank"
