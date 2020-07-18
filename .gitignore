@@ -22,6 +22,9 @@ find.log
 ### .env ###
 **/.env
 
+## nohup.out ###
+**/nohup.out
+
 ### nodejs ###
 **/node_modules
 **/package-lock.json
