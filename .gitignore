@@ -8,7 +8,7 @@ webappseller/
 
 ### Quorum ###
 */build
-*/contractAddresses/*
+*/contractAddresses/*.txt
 
 ### Unit Tests ###
 find.log
