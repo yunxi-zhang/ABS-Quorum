@@ -18,6 +18,12 @@ ADDRESS=${ABS_NODE_MEMBER_ACCOUNT}
 This section clarifies what are the purposes of folders and files used in this repo.
 <pre>
 |__ <b>quorum</b>: This folder contains all the solidity smart contracts and the truffle deployment files.
+    |__ <b>config</b>: This folder contains a config file that will read environment parameters from .env file.
+    |__ <b>contractAddresses</b>: This folder contains txt files. Each will have a deployed smart contract address, which might be useful to a user when needed. The txt files are ignored by gitignore file, as the files are always generated on the fly, when the smart contracts are deployed to a Quorum network in the ABS.
+    |__ <b>contracts</b>: This folder contains smart contract files.
+    |__ <b>migrations</b>: This folder contains smart contract deploy files.
+    |__ <b>test</b>: This folder will have files for unit tests.
+    |__ <b>.env</b>: a .env file will be created by a user explicitly This is stated in the prerequsites, and the information will be sensitive, so it is ignored in the gitignore file.
 |__ <b>webapp</b>: This folder contains all the files for each organisation to run as Web Services.
 |__ <b>common.sh</b>: This shell script defines the styling of information printed out. It is used by other shell script files.
 |__ <b>runAllStepsInOne.sh</b>: This is a shell file that will run all other shell files named in a way like "stageX_{step description}.sh".
