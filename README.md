@@ -23,9 +23,9 @@ This section clarifies what are the purposes of folders and files used in this r
     |__ <b>contracts</b>: This folder contains smart contract files.
     |__ <b>migrations</b>: This folder contains smart contract deploy files.
     |__ <b>test</b>: This folder will have files for unit tests.
-    |__ <b>.env</b>: a .env file will be created by a user explicitly This is stated in the prerequsites, and the information will be sensitive, so it is ignored in the gitignore file.
+    |__ <b>.env</b>: a .env file will be created by a user explicitly. This is stated as point 4 in the prerequsites, and the information will be sensitive, so it is ignored in the gitignore file.
 |__ <b>webapp</b>: This folder contains all the files for each organisation to run as Web Services.
-    |__ <b>.env</b>: a .env file will be created by a user explicitly This is stated in the prerequsites, and the information will be sensitive, so it is ignored in the gitignore file.
+    |__ <b>.env</b>: a .env file will be created by a user explicitly. This is stated as point 4 in the prerequsites, and the information will be sensitive, so it is ignored in the gitignore file.
 |__ <b>common.sh</b>: This shell script defines the styling of information printed out. It is used by other shell script files.
 |__ <b>runAllStepsInOne.sh</b>: This is a shell file that will run all other shell files named in a way like "stageX_{step description}.sh".
 |__ <b>stageX_{step description}.sh</b>: These files are mainly used to automate the setup of a Fabric network in a local machine to quickly set up a local development environment. Details are given in a seperate section later.
