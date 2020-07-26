@@ -12,7 +12,7 @@ Run following command to redeploy all smart contracts to an ABS-Quorum network
 PROVIDER=${ABS_TRANSACTION_NODE_ACCESS_KEYS_HTTPS_ENDPOINT} PASSWORD=${ABS_TRANSACTION_NODE_SETUP_PASSWORD} ADDRESS=${ABS_NODE_MEMBER_ACCOUNT} truffle migrate --reset --network bankBuyerSeller
 ```
 
-## Shell files: StageX_{step description} - from stage1 to stage7
+## Shell files: StageX_{step description}
 1. **stage1_deploySmartContracts.sh** is a shell file that will deploy the two Solidity smart contracts by using Truffle commands.
 2. **stage2_runWebServer.sh** will run 3 web servers for 3 organisations respectively.
 
