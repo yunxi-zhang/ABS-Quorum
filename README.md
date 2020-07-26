@@ -17,7 +17,7 @@ ADDRESS=${ABS_NODE_MEMBER_ACCOUNT}
 ## Repo Structure ##
 This section clarifies what are the purposes of folders and files used in this repo.
 <pre>
-|__<b>quorum</b>: This folder contains all the solidity smart contracts and the truffle deployment files.
+|__ <b>quorum</b>: This folder contains all the solidity smart contracts and the truffle deployment files.
 |__ <b>webapp</b>: This folder contains all the files for each organisation to run as Web Services.
 |__ <b>common.sh</b>: This shell script defines the styling of information printed out. It is used by other shell script files.
 |__ <b>runAllStepsInOne.sh</b>: This is a shell file that will run all other shell files named in a way like "stageX_{step description}.sh".
