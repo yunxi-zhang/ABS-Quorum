@@ -5,10 +5,8 @@ This repo is mainly used to run a Quorum DLT network on Azure Blockchain as a Se
 To run this repo, a user has to install the below tools on a local machine.
 1. **OS**: MacOS 10.14.6 (properly tested) or Unix/Linux(not properly tested yet).
 2. **node version**: 10.17.0.
-3. A user has an Azure account and already set up a Quorum network with at least with one ABS member. 
-
-# ABS-Quorum Configuration
-In order to quickly use this repo to deploy smart contracts to a ABS Quorum network, a .env file is required to be created inside the "quorum" folder as well as inside the "webapp" folder.
+3. A user has an Azure account and already set up a Quorum network with at least with one ABS member.
+4. A ".env" file is required to be created inside the "quorum" folder as well as the "webapp" folder respectively.
 The contents of a .env file must have 3 key values pair as shown below:
 ```
 PROVIDER=${ABS_TRANSACTION_NODE_ACCESS_KEYS_HTTPS_ENDPOINT}
