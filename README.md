@@ -14,6 +14,16 @@ PASSWORD=${ABS_TRANSACTION_NODE_SETUP_PASSWORD}
 ADDRESS=${ABS_NODE_MEMBER_ACCOUNT}
 ```
 
+## Repo Structure ##
+This section clarifies what are the purposes of folders and files used in this repo.
+<pre>
+|__ <b>webapp</b>: This folder contains all the files for each organisation to run as Web Services.
+|__ <b>.env</b>: This file defines environmental variables used in the docker-compose-cli.yaml.
+|__ <b>common.sh</b>: This shell script defines the styling of information printed out. It is used by other shell script files.
+|__ <b>runAllStepsInOne.sh</b>: This is a shell file that will run all other shell files named in a way like "stageX_{step description}.sh".
+|__ <b>stageX_{step description}.sh</b>: These files are mainly used to automate the setup of a Fabric network in a local machine to quickly set up a local development environment. Details are given in a seperate section later.
+</pre>
+
 ## Shell files: StageX_{step description}
 1. **stage1_deploySmartContracts.sh** is a shell file that will deploy the two Solidity smart contracts by using Truffle commands.
 2. **stage2_runWebServer.sh** will run 3 web servers for 3 organisations respectively.
