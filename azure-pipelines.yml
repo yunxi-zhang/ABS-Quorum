@@ -16,11 +16,17 @@ steps:
   displayName: 'Install Node.js'
 
 - script: |
-      rm -rf *.yml
-      rm -rf *.md
-      rm .gitignore
-      ls -al
+    rm -rf *.yml
+    rm -rf *.md
+    rm .gitignore
+    rm -rf *.sh
+    ls -al
   displayName: "Remove unnecessary files"
+
+- script: |
+    cp -r ./quorum ./webapp
+    rm -rf ./quorum
+  displayName: 'move quorum folder to sit in the webapp folder'
 
 - script: |
     cd ./webapp
