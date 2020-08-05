@@ -1,6 +1,8 @@
 var express = require("express");
+const dotenv = require('dotenv');
+dotenv.config();
 var app = express(),
-    port = 3003;
+    port = process.env.PORT || 443;
 const seller = require('./routes/seller.js');
 
 app.use('/seller', seller);
