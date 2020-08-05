@@ -23,17 +23,26 @@ steps:
   displayName: "Remove unnecessary files"
 
 - script: |
-    cd ./webapp/bank
+    cd ./webapp
+    cp -r ./lib/config ./bank
+    cp -r ./lib/web3 ./bank
+    cd ./bank
     npm install
   displayName: 'NPM install for bank'
 
 - script: |
-    cd ./webapp/buyer
+    cd ./webapp
+    cp -r ./lib/config ./buyer
+    cp -r ./lib/web3 ./buyer
+    cd ./buyer
     npm install
   displayName: 'NPM install for buyer'
 
 - script: |
-    cd ./webapp/seller
+    cd ./webapp
+    cp -r ./lib/config ./seller
+    cp -r ./lib/web3 ./seller
+    cd. /seller
     npm install
   displayName: 'NPM install for seller'
 
