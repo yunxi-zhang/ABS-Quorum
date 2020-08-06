@@ -24,6 +24,10 @@ steps:
     ls -al
   displayName: "Remove unnecessary files"
 
+- script: | 
+    npx truffle migrate --reset --network bankBuyerSeller
+  displayName: "Deploy Smart Contracts"
+
 - script: |
     cd ./webapp
     cp -r ./lib/config ./bank
