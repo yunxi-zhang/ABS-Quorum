@@ -31,13 +31,13 @@ steps:
   displayName: "Deploy Smart Contracts"
 
 - script: |
-    cp ./web3Setup.js ./lib/web3
     cd ./webapp
     cp -r ./lib/config ./bank
     cp -r ./lib/web3 ./bank
+    cp ../web3Setup.js ./webapp/bank/
     cd ./bank
     ls -al
-    cat web3/web3Setup.js
+    cat ./web3/web3Setup.js
     npm install
     cd ../../
     cp -r ./quorum ./webapp/bank
