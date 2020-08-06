@@ -32,87 +32,55 @@ if [ -d webappbuyer ]; then
 fi
 ls -al webappbuyer
 
-stepInfo "Run npm install in the webapp as a template web server"
-cd ./webapp
-npm install
-cd ..
-
-stepInfo "Show current path before creating new web server"
-pwd
-
 stepInfo "Creating A Web Server for Bank"
-cp -r ./webapp ./webappbank
+cp -r ./webapp/bank ./webappbank
+cp -r ./webapp/lib/config ./webappbank
+cp -r ./webapp/lib/web3 ./webappbank
 stepInfo "Show files in webappbank"
 cd ./webappbank
-cp -r ./lib/config ./bank
-cp -r ./lib/web3 ./bank
 rm -rf ./lib
 pwd
 ls -al 
-stepInfo "Show the new server.js and package.json in webappbank"
-ls -al server.js package.json
-stepInfo "Delete seller and buyer folders"
-rm -rf seller buyer
-stepInfo "Show seller and buyer folders are gone"
-ls -al seller buyer
-stepInfo "Go to bank folder"
-cd ./bank
-stepInfo "Show the new server.js and package.json in webappbank"
-ls -al server.js package.json
+stepInfo "Go to bank folder and install npm dependencies"
+npm install
 stepInfo "Run npm start in the background"
 nohup npm start &
 stepInfo "go back to the root path"
-cd ../..
+cd ..
 pwd
 
 stepInfo "Creating A Web Server for Buyer"
-cp -r ./webapp ./webappbuyer
+cp -r ./webapp/buyer ./webappbuyer
+cp -r ./webapp/lib/config ./webappbuyer
+cp -r ./webapp/lib/web3 ./webappbuyer
 stepInfo "Show files in webappbank"
 cd ./webappbuyer
-cp -r ./lib/config ./buyer
-cp -r ./lib/web3 ./buyer
 rm -rf ./lib
 pwd
 ls -al 
-stepInfo "Show the new server.js and package.json in webappbuyer"
-ls -al server.js package.json
-stepInfo "Delete seller and bank folders"
-rm -rf seller bank
-stepInfo "Show seller and bank folders are gone"
-ls -al seller bank
-stepInfo "Go to buyer folder"
-cd ./buyer
-stepInfo "Show the new server.js and package.json in webappbank"
-ls -al server.js package.json
+stepInfo "Go to buyer folder and install npm dependencies"
+npm install
 stepInfo "Run npm start in the background"
 nohup npm start &
 stepInfo "go back to the root path"
-cd ../..
+cd ..
 pwd
 
 stepInfo "Creating A Web Server for Seller"
-cp -r ./webapp ./webappseller
+cp -r ./webapp/seller ./webappseller
+cp -r ./webapp/lib/config ./webappseller
+cp -r ./webapp/lib/web3 ./webappseller
 stepInfo "Show files in webappseller"
 cd ./webappseller
-cp -r ./lib/config ./seller
-cp -r ./lib/web3 ./seller
 rm -rf ./lib
 pwd
 ls -al 
-stepInfo "Show the new server.js and package.json in webappbank"
-ls -al server.js package.json
-stepInfo "Delete bank and buyer folders"
-rm -rf bank buyer
-stepInfo "Show bank and buyer folders are gone"
-ls -al bank buyer
-stepInfo "Go to seller folder"
-cd ./seller
-stepInfo "Show the new server.js and package.json in webappseller"
-ls -al server.js package.json
+stepInfo "Go to seller folder and install npm dependencies"
+npm install
 stepInfo "Run npm start in the background"
 nohup npm start &
 stepInfo "go back to the root path"
-cd ../..
+cd ..
 pwd
 
 figlet Complete Setting Up Web Servers

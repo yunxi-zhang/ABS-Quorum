@@ -35,7 +35,7 @@ const getABI = async (type) => {
     try {
         contract = JSON.parse(
             fs.readFileSync(
-                path.join(__dirname, `../../../quorum/build/contracts/${type}.json`),
+                path.join(__dirname, `../../quorum/build/contracts/${type}.json`),
                 "utf8"
             )
         );
@@ -54,7 +54,7 @@ const getContractAddress = async (type) => {
     let contractAddress;
     try {
         contractAddress = fs.readFileSync(
-            path.join(__dirname, `../../../quorum/contractAddresses/${type}DeployedContractAddress.txt`),
+            path.join(__dirname, `../../quorum/contractAddresses/${type}DeployedContractAddress.txt`),
             "utf8"
         );
         return contractAddress;
