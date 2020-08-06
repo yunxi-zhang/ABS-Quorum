@@ -24,11 +24,7 @@ steps:
   displayName: "Remove unnecessary files"
 
 - script: |
-    cp -r ./quorum ./webapp
-    rm -rf ./quorum
-  displayName: 'move quorum folder to sit in the webapp folder'
-
-- script: |
+    cp -r ./quorum ./webapp/bank
     cd ./webapp
     cp -r ./lib/config ./bank
     cp -r ./lib/web3 ./bank
@@ -37,6 +33,7 @@ steps:
   displayName: 'NPM install for bank'
 
 - script: |
+    cp -r ./quorum ./webapp/buyer
     cd ./webapp
     cp -r ./lib/config ./buyer
     cp -r ./lib/web3 ./buyer
@@ -45,6 +42,7 @@ steps:
   displayName: 'NPM install for buyer'
 
 - script: |
+    cp -r ./quorum ./webapp/seller
     cd ./webapp
     cp -r ./lib/config ./seller
     cp -r ./lib/web3 ./seller
