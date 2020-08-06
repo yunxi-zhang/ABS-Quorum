@@ -32,7 +32,7 @@ steps:
     ls -al
     npm install
     cd ../../
-    cp ./quorum ./webapp/bank
+    cp -r ./quorum ./webapp/bank
   displayName: 'NPM install for bank'
 
 # - script: |
