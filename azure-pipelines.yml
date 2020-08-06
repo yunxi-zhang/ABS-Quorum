@@ -28,19 +28,19 @@ steps:
     cd ./quorum
     npm install
     npx truffle migrate --reset --network bankBuyerSeller
+    cp -r ../quorum ../webapp/bank
+    cp -r ../quorum ../webapp/buyer
+    cp -r ../quorum ../webapp/seller
   displayName: "Deploy Smart Contracts"
 
 - script: |
-    cd ./webapp
-    cp -r ./lib/config ./bank
-    cp -r ./lib/web3 ./bank
-    cp ../web3Setup.js ./webapp/bank/
-    cd ./bank
+    cp ./web3Setup.js ./webapp/lib/web3
+    cp -r ./webapp/lib/config ./webapp/bank
+    cp -r ./webapp/lib/web3 ./webapp/bank
+    cd ./webapp/bank
     ls -al
     cat ./web3/web3Setup.js
     npm install
-    cd ../../
-    cp -r ./quorum ./webapp/bank
   displayName: 'NPM install for bank'
 
 # - script: |
