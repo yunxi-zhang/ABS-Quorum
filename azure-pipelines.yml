@@ -29,6 +29,7 @@ steps:
     cp -r ./lib/config ./bank
     cp -r ./lib/web3 ./bank
     cd ./bank
+    ls -al
     npm install
   displayName: 'NPM install for bank'
 
