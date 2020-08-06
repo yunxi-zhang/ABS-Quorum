@@ -15,15 +15,6 @@ steps:
     versionSpec: '10.x'
   displayName: 'Install Node.js'
 
-- script: |
-    rm -rf *.yml
-    rm -rf *.md
-    rm .gitignore
-    rm -rf *.sh
-    rm .gitignore
-    ls -al
-  displayName: "Remove unnecessary files"
-
 - script: | 
     cd ./quorum
     npm install
@@ -62,6 +53,19 @@ steps:
     cat ./web3/web3Setup.js
     npm install
   displayName: 'NPM install for seller'
+
+- script: |
+    rm -rf *.yml
+    rm -rf *.md
+    rm .gitignore
+    rm -rf *.sh
+    rm .gitignore
+    rm -rf ./quorum
+    rm ./web3Setup.js
+    rm -rf ./webapp/lib
+    rm ./webapp/package.json
+    ls -al
+  displayName: "Remove unnecessary files"
 
 - publish: $(System.DefaultWorkingDirectory)/
   artifact: WebApp
