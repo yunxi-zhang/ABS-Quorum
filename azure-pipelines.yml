@@ -43,14 +43,9 @@ steps:
     npm install
   displayName: 'NPM install for bank'
 
-# - script: |
-#     cp -r ./quorum ./webapp/buyer
-#     cd ./webapp
-#     cp -r ./lib/config ./buyer
-#     cp -r ./lib/web3 ./buyer
-#     cd ./buyer
-#     npm install
-#   displayName: 'NPM install for buyer'
+- script: |
+    pwd
+  displayName: 'NPM install for buyer'
 
 # - script: |
 #     cp -r ./quorum ./webapp/seller
