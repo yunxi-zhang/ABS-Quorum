@@ -15,23 +15,23 @@ steps:
     versionSpec: '10.x'
   displayName: 'Install Node.js'
 
-# - script: |
-#     rm -rf *.yml
-#     rm -rf *.md
-#     rm .gitignore
-#     rm -rf *.sh
-#     ls -al
-#   displayName: "Remove unnecessary files"
+- script: |
+    rm -rf *.yml
+    rm -rf *.md
+    rm .gitignore
+    rm -rf *.sh
+    rm .gitignore
+    ls -al
+  displayName: "Remove unnecessary files"
 
-# - script: |
-#     cp -r ./quorum ./webapp/bank
-#     cd ./webapp
-#     cp -r ./lib/config ./bank
-#     cp -r ./lib/web3 ./bank
-#     cd ./bank
-#     ls -al
-#     npm install
-#   displayName: 'NPM install for bank'
+- script: |
+    cd ./webapp
+    cp -r ./lib/config ./bank
+    cp -r ./lib/web3 ./bank
+    cd ./bank
+    ls -al
+    npm install
+  displayName: 'NPM install for bank'
 
 # - script: |
 #     cp -r ./quorum ./webapp/buyer
