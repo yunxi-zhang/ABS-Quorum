@@ -1,3 +1,4 @@
+const config = require("../config/config");
 const buyer = artifacts.require("Buyer");
 const seller = artifacts.require("Seller");
 const fs = require("fs");
