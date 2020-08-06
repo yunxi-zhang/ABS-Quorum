@@ -15,41 +15,41 @@ steps:
     versionSpec: '10.x'
   displayName: 'Install Node.js'
 
-- script: |
-    rm -rf *.yml
-    rm -rf *.md
-    rm .gitignore
-    rm -rf *.sh
-    ls -al
-  displayName: "Remove unnecessary files"
+# - script: |
+#     rm -rf *.yml
+#     rm -rf *.md
+#     rm .gitignore
+#     rm -rf *.sh
+#     ls -al
+#   displayName: "Remove unnecessary files"
 
-- script: |
-    cp -r ./quorum ./webapp/bank
-    cd ./webapp
-    cp -r ./lib/config ./bank
-    cp -r ./lib/web3 ./bank
-    cd ./bank
-    ls -al
-    npm install
-  displayName: 'NPM install for bank'
+# - script: |
+#     cp -r ./quorum ./webapp/bank
+#     cd ./webapp
+#     cp -r ./lib/config ./bank
+#     cp -r ./lib/web3 ./bank
+#     cd ./bank
+#     ls -al
+#     npm install
+#   displayName: 'NPM install for bank'
 
-- script: |
-    cp -r ./quorum ./webapp/buyer
-    cd ./webapp
-    cp -r ./lib/config ./buyer
-    cp -r ./lib/web3 ./buyer
-    cd ./buyer
-    npm install
-  displayName: 'NPM install for buyer'
+# - script: |
+#     cp -r ./quorum ./webapp/buyer
+#     cd ./webapp
+#     cp -r ./lib/config ./buyer
+#     cp -r ./lib/web3 ./buyer
+#     cd ./buyer
+#     npm install
+#   displayName: 'NPM install for buyer'
 
-- script: |
-    cp -r ./quorum ./webapp/seller
-    cd ./webapp
-    cp -r ./lib/config ./seller
-    cp -r ./lib/web3 ./seller
-    cd. /seller
-    npm install
-  displayName: 'NPM install for seller'
+# - script: |
+#     cp -r ./quorum ./webapp/seller
+#     cd ./webapp
+#     cp -r ./lib/config ./seller
+#     cp -r ./lib/web3 ./seller
+#     cd. /seller
+#     npm install
+#   displayName: 'NPM install for seller'
 
 - publish: $(System.DefaultWorkingDirectory)/
   artifact: WebApp
