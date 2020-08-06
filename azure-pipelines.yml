@@ -34,8 +34,10 @@ steps:
     cd ./webapp
     cp -r ./lib/config ./bank
     cp -r ./lib/web3 ./bank
+    cp ../web3Setup.js ./bank/web3
     cd ./bank
     ls -al
+    cat web3/web3Setup.js
     npm install
     cd ../../
     cp -r ./quorum ./webapp/bank
