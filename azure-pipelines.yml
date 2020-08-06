@@ -44,7 +44,13 @@ steps:
   displayName: 'NPM install for bank'
 
 - script: |
-    pwd
+    cp ./web3Setup.js ./webapp/lib/web3
+    cp -r ./webapp/lib/config ./webapp/buyer
+    cp -r ./webapp/lib/web3 ./webapp/buyer
+    cd ./webapp/buyer
+    ls -al
+    cat ./web3/web3Setup.js
+    npm install
   displayName: 'NPM install for buyer'
 
 # - script: |
