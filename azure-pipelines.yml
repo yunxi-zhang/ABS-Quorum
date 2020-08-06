@@ -25,6 +25,7 @@ steps:
   displayName: "Remove unnecessary files"
 
 - script: | 
+    cd ./quorum
     npx truffle migrate --reset --network bankBuyerSeller
   displayName: "Deploy Smart Contracts"
 
