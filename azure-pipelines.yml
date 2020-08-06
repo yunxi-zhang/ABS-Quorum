@@ -26,6 +26,7 @@ steps:
 
 - script: | 
     cd ./quorum
+    npm install
     npx truffle migrate --reset --network bankBuyerSeller
   displayName: "Deploy Smart Contracts"
 
