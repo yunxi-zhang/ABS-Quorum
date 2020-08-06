@@ -53,14 +53,15 @@ steps:
     npm install
   displayName: 'NPM install for buyer'
 
-# - script: |
-#     cp -r ./quorum ./webapp/seller
-#     cd ./webapp
-#     cp -r ./lib/config ./seller
-#     cp -r ./lib/web3 ./seller
-#     cd. /seller
-#     npm install
-#   displayName: 'NPM install for seller'
+- script: |
+    cp ./web3Setup.js ./webapp/lib/web3
+    cp -r ./webapp/lib/config ./webapp/seller
+    cp -r ./webapp/lib/web3 ./webapp/seller
+    cd ./webapp/seller
+    ls -al
+    cat ./web3/web3Setup.js
+    npm install
+  displayName: 'NPM install for seller'
 
 - publish: $(System.DefaultWorkingDirectory)/
   artifact: WebApp
