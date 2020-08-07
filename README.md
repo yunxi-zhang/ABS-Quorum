@@ -6,12 +6,21 @@ To run this repo, a user has to install the below tools on a local machine.
 1. **OS**: MacOS 10.14.6 (properly tested) or Unix/Linux(not properly tested yet).
 2. **node version**: 10.17.0.
 3. A user has an Azure account and already set up a Quorum network with at least with one ABS member.
-4. A ".env" file is required to be created inside the "quorum" folder as well as the "webapp" folder respectively.
-The contents of a .env file must have 3 key values pair as shown below:
+4. A ".env" file is required to be created inside the "quorum" folder as well as inside each party's folder in the "webapp" folder respectively.
+The contents of a .env file inside the "quorum" folder must have 3 key values pair as shown below:
 ```
 PROVIDER=${ABS_TRANSACTION_NODE_ACCESS_KEYS_HTTPS_ENDPOINT}
 PASSWORD=${ABS_TRANSACTION_NODE_SETUP_PASSWORD}
 ADDRESS=${ABS_NODE_MEMBER_ACCOUNT}
+```
+
+The contents of a .env file inside each party folder must have 3 key values pair as shown below:
+```
+PORT={port number for a service}
+PROVIDER=${ABS_TRANSACTION_NODE_ACCESS_KEYS_HTTPS_ENDPOINT}
+PASSWORD=${ABS_TRANSACTION_NODE_SETUP_PASSWORD}
+ADDRESS=${ABS_NODE_MEMBER_ACCOUNT}
+APPINSIGHTS_INSTRUMENTATIONKEY={Azure app service instrumentation key} (only needed for a bank service)
 ```
 
 ## Repo Structure ##
@@ -25,7 +34,12 @@ This section clarifies what are the purposes of folders and files used in this r
     |__ <b>test</b>: This folder will have files for unit tests.
     |__ <b>.env</b>: a .env file will be created by a user explicitly. This is stated as point 4 in the prerequsites, and the information will be sensitive, so it is ignored in the gitignore file.
 |__ <b>webapp</b>: This folder contains all the files for each organisation to run as Web Services.
-    |__ <b>.env</b>: a .env file will be created by a user explicitly. This is stated as point 4 in the prerequsites, and the information will be sensitive, so it is ignored in the gitignore file.
+    |__ <b>bank</b>: a folder that contains all files related to a bank service.
+        |__ <b>.env</b>: a .env file will be created by a user explicitly. This is stated as point 4 in the prerequsites, and the information will be sensitive, so it is ignored in the gitignore file.
+    |__ <b>buyer</b>: a folder that contains all files related to a buyer service.
+        |__ <b>.env</b>: a .env file will be created by a user explicitly. This is stated as point 4 in the prerequsites, and the information will be sensitive, so it is ignored in the gitignore file.
+    |__ <b>seller</b>: a folder that contains all files related to a seller service.
+        |__ <b>.env</b>: a .env file will be created by a user explicitly. This is stated as point 4 in the prerequsites, and the information will be sensitive, so it is ignored in the gitignore file.
 |__ <b>common.sh</b>: This shell script defines the styling of information printed out. It is used by other shell script files.
 |__ <b>runAllStepsInOne.sh</b>: This is a shell file that will run all other shell files named in a way like "stageX_{step description}.sh".
 |__ <b>stageX_{step description}.sh</b>: These files are mainly used to automate the setup of a Fabric network in a local machine to quickly set up a local development environment. Details are given in a seperate section later.
