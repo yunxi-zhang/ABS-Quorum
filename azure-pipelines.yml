@@ -12,7 +12,7 @@ trigger:
 stages:
 - stage: Stage1_Install_Dependencies
   jobs: 
-    - job: job1_Install_NodeJS
+    - job: Job1_Install_NodeJS
       steps:
       - task: NodeTool@0
         inputs:
@@ -21,7 +21,7 @@ stages:
 
 - stage: Stage2_Build_Apps
   jobs: 
-    - job: job1_Deploy_Smart_Contract
+    - job: Job1_Deploy_Smart_Contract
       steps: 
       - script: | 
           cd ./quorum
@@ -32,7 +32,7 @@ stages:
           cp -r ../quorum ../webapp/seller
         displayName: "Deploy Smart Contracts"
       
-    - job: job2_Build_Backend_Apps
+    - job: Job2_Build_Bank_Backend_App
       steps: 
       - script: |
           cp ./web3Setup.js ./webapp/lib/web3
@@ -43,7 +43,9 @@ stages:
           cat ./web3/web3Setup.js
           npm install
         displayName: 'NPM install for bank'
-
+    
+    - job: Job2_Build_Buyer_Backend_Apps
+      steps: 
       - script: |
           cp ./web3Setup.js ./webapp/lib/web3
           cp -r ./webapp/lib/config ./webapp/buyer
@@ -54,6 +56,8 @@ stages:
           npm install
         displayName: 'NPM install for buyer'
 
+    - job: Job2_Build_Seller_Backend_Apps
+      steps: 
       - script: |
           cp ./web3Setup.js ./webapp/lib/web3
           cp -r ./webapp/lib/config ./webapp/seller
@@ -64,9 +68,9 @@ stages:
           npm install
         displayName: 'NPM install for seller'
 
-- stage: Stage3_Clean_Artifacts
+- stage: Stage3_Publish_Artifacts
   jobs:
-    - job: job1_Clean_Artifacts
+    - job: Job_Clean_And_Publish_Artifacts
       steps: 
       - script: |
           rm -rf *.yml
@@ -81,8 +85,6 @@ stages:
           ls -al
         displayName: "Remove unnecessary files"
     
-    - job: job2_Publish_Artifacts
-      steps:
       - publish: $(System.DefaultWorkingDirectory)/
         artifact: WebApp
         displayName: 'Publish artifact'
