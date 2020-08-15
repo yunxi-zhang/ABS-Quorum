@@ -6,67 +6,83 @@
 trigger:
 - master
 
-pool:
-  vmImage: 'ubuntu-latest'
+# pool:
+#   vmImage: 'ubuntu-latest'
 
-steps:
-- task: NodeTool@0
-  inputs:
-    versionSpec: '10.x'
-  displayName: 'Install Node.js'
+stages:
+- stage: Stage1 Install Dependencies
+  jobs: 
+    - job: job1_Install_NodeJS
+      steps:
+      - task: NodeTool@0
+        inputs:
+          versionSpec: '10.x'
+        displayName: 'Install Node.js'
 
-- script: | 
-    cd ./quorum
-    npm install
-    npx truffle migrate --reset --network bankBuyerSeller
-    cp -r ../quorum ../webapp/bank
-    cp -r ../quorum ../webapp/buyer
-    cp -r ../quorum ../webapp/seller
-  displayName: "Deploy Smart Contracts"
+- stage: Stage2 Build Apps
+  jobs: 
+    - job: job1_Deploy_Smart_Contract
+      steps: 
+      - script: | 
+          cd ./quorum
+          npm install
+          npx truffle migrate --reset --network bankBuyerSeller
+          cp -r ../quorum ../webapp/bank
+          cp -r ../quorum ../webapp/buyer
+          cp -r ../quorum ../webapp/seller
+        displayName: "Deploy Smart Contracts"
+      
+    - job: job2_Build_Backend_Apps
+      steps: 
+      - script: |
+          cp ./web3Setup.js ./webapp/lib/web3
+          cp -r ./webapp/lib/config ./webapp/bank
+          cp -r ./webapp/lib/web3 ./webapp/bank
+          cd ./webapp/bank
+          ls -al
+          cat ./web3/web3Setup.js
+          npm install
+        displayName: 'NPM install for bank'
 
-- script: |
-    cp ./web3Setup.js ./webapp/lib/web3
-    cp -r ./webapp/lib/config ./webapp/bank
-    cp -r ./webapp/lib/web3 ./webapp/bank
-    cd ./webapp/bank
-    ls -al
-    cat ./web3/web3Setup.js
-    npm install
-  displayName: 'NPM install for bank'
+      - script: |
+          cp ./web3Setup.js ./webapp/lib/web3
+          cp -r ./webapp/lib/config ./webapp/buyer
+          cp -r ./webapp/lib/web3 ./webapp/buyer
+          cd ./webapp/buyer
+          ls -al
+          cat ./web3/web3Setup.js
+          npm install
+        displayName: 'NPM install for buyer'
 
-- script: |
-    cp ./web3Setup.js ./webapp/lib/web3
-    cp -r ./webapp/lib/config ./webapp/buyer
-    cp -r ./webapp/lib/web3 ./webapp/buyer
-    cd ./webapp/buyer
-    ls -al
-    cat ./web3/web3Setup.js
-    npm install
-  displayName: 'NPM install for buyer'
+      - script: |
+          cp ./web3Setup.js ./webapp/lib/web3
+          cp -r ./webapp/lib/config ./webapp/seller
+          cp -r ./webapp/lib/web3 ./webapp/seller
+          cd ./webapp/seller
+          ls -al
+          cat ./web3/web3Setup.js
+          npm install
+        displayName: 'NPM install for seller'
 
-- script: |
-    cp ./web3Setup.js ./webapp/lib/web3
-    cp -r ./webapp/lib/config ./webapp/seller
-    cp -r ./webapp/lib/web3 ./webapp/seller
-    cd ./webapp/seller
-    ls -al
-    cat ./web3/web3Setup.js
-    npm install
-  displayName: 'NPM install for seller'
-
-- script: |
-    rm -rf *.yml
-    rm -rf *.md
-    rm .gitignore
-    rm -rf *.sh
-    rm .gitignore
-    rm -rf ./quorum
-    rm ./web3Setup.js
-    rm -rf ./webapp/lib
-    rm ./webapp/package.json
-    ls -al
-  displayName: "Remove unnecessary files"
-
-- publish: $(System.DefaultWorkingDirectory)/
-  artifact: WebApp
-  displayName: 'Publish artifact'
+- stage: Stage3 Clean Artifacts
+  jobs:
+    - job: job1_Clean_Artifacts
+      steps: 
+      - script: |
+          rm -rf *.yml
+          rm -rf *.md
+          rm .gitignore
+          rm -rf *.sh
+          rm .gitignore
+          rm -rf ./quorum
+          rm ./web3Setup.js
+          rm -rf ./webapp/lib
+          rm ./webapp/package.json
+          ls -al
+        displayName: "Remove unnecessary files"
+    
+    - job: job2_Publish_Artifacts
+      steps:
+      - publish: $(System.DefaultWorkingDirectory)/
+        artifact: WebApp
+        displayName: 'Publish artifact'
