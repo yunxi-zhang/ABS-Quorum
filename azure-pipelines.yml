@@ -44,7 +44,7 @@ stages:
           npm install
         displayName: 'NPM install for bank'
     
-    - job: Job2_Build_Buyer_Backend_Apps
+    - job: Job3_Build_Buyer_Backend_Apps
       steps: 
       - script: |
           cp ./web3Setup.js ./webapp/lib/web3
@@ -56,7 +56,7 @@ stages:
           npm install
         displayName: 'NPM install for buyer'
 
-    - job: Job2_Build_Seller_Backend_Apps
+    - job: Job4_Build_Seller_Backend_Apps
       steps: 
       - script: |
           cp ./web3Setup.js ./webapp/lib/web3
