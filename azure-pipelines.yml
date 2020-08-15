@@ -68,10 +68,6 @@ stages:
           npm install
         displayName: 'NPM install for seller'
 
-- stage: Stage3_Publish_Artifacts
-  jobs:
-    - job: Job_Clean_And_Publish_Artifacts
-      steps: 
       - script: |
           rm -rf *.yml
           rm -rf *.md
