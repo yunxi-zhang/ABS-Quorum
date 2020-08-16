@@ -31,7 +31,9 @@ stages:
           cp -r ../quorum ../webapp/buyer
           cp -r ../quorum ../webapp/seller
         displayName: "Deploy Smart Contracts"
-      
+    
+    - job: Job2_Build_Bank_Backend_App
+      steps: 
       - script: |
           cp ./web3Setup.js ./webapp/lib/web3
           cp -r ./webapp/lib/config ./webapp/bank
@@ -42,6 +44,8 @@ stages:
           npm install
         displayName: 'NPM install for bank'
     
+    - job: Job3_Build_Buyer_Backend_App
+      steps: 
       - script: |
           cp ./web3Setup.js ./webapp/lib/web3
           cp -r ./webapp/lib/config ./webapp/buyer
@@ -52,6 +56,8 @@ stages:
           npm install
         displayName: 'NPM install for buyer'
 
+    - job: Job4_Build_Seller_Backend_App
+      steps: 
       - script: |
           cp ./web3Setup.js ./webapp/lib/web3
           cp -r ./webapp/lib/config ./webapp/seller
@@ -61,7 +67,13 @@ stages:
           cat ./web3/web3Setup.js
           npm install
         displayName: 'NPM install for seller'
-
+    
+    - job: Job5_Clean_Artifact
+      dependsOn:
+      - Job2_Build_Bank_Backend_App
+      - Job3_Build_Buyer_Backend_App
+      - Job4_Build_Seller_Backend_App
+      steps: 
       - script: |
           rm -rf *.yml
           rm -rf *.md
