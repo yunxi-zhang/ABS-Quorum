@@ -19,6 +19,10 @@ stages:
           versionSpec: '10.x'
         displayName: 'Install Node.js'
 
+    - deployment: Deployment_Test
+      displayName: 'Deployment Test'
+      environment: 'dev'
+
 - stage: Stage2_Build_Apps
   jobs: 
     - job: Job_Build_Apps
