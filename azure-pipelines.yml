@@ -21,7 +21,7 @@ stages:
 
 - stage: Stage2_Build_Apps
   jobs: 
-    - job: Job1_Deploy_Smart_Contract
+    - job: Job_Build_Apps
       steps: 
       - script: | 
           cd ./quorum
@@ -31,11 +31,7 @@ stages:
           cp -r ../quorum ../webapp/buyer
           cp -r ../quorum ../webapp/seller
         displayName: "Deploy Smart Contracts"
-    
-    - job: Job2_Build_Bank_Backend_App
-      dependsOn:
-      - Job1_Deploy_Smart_Contract
-      steps: 
+     
       - script: |
           cp ./web3Setup.js ./webapp/lib/web3
           cp -r ./webapp/lib/config ./webapp/bank
@@ -43,13 +39,8 @@ stages:
           cd ./webapp/bank
           cat ./web3/web3Setup.js
           npm install
-          ls -al
         displayName: 'NPM install for bank'
     
-    - job: Job3_Build_Buyer_Backend_App
-      dependsOn:
-      - Job1_Deploy_Smart_Contract
-      steps: 
       - script: |
           cp ./web3Setup.js ./webapp/lib/web3
           cp -r ./webapp/lib/config ./webapp/buyer
@@ -57,13 +48,8 @@ stages:
           cd ./webapp/buyer
           cat ./web3/web3Setup.js
           npm install
-          ls -al
         displayName: 'NPM install for buyer'
 
-    - job: Job4_Build_Seller_Backend_App
-      dependsOn:
-      - Job1_Deploy_Smart_Contract
-      steps: 
       - script: |
           cp ./web3Setup.js ./webapp/lib/web3
           cp -r ./webapp/lib/config ./webapp/seller
@@ -71,19 +57,9 @@ stages:
           cd ./webapp/seller
           cat ./web3/web3Setup.js
           npm install
-          ls -al
         displayName: 'NPM install for seller'
     
-    - job: Job5_Clean_Artifact
-      dependsOn:
-      - Job2_Build_Bank_Backend_App
-      - Job3_Build_Buyer_Backend_App
-      - Job4_Build_Seller_Backend_App
-      steps: 
       - script: |
-          ls -al ./webapp/bank
-          ls -al ./webapp/buyer
-          ls -al ./webapp/seller
           rm -rf *.yml
           rm -rf *.md
           rm .gitignore
@@ -93,9 +69,6 @@ stages:
           rm ./web3Setup.js
           rm -rf ./webapp/lib
           rm ./webapp/package.json
-          ls -al ./webapp/bank
-          ls -al ./webapp/buyer
-          ls -al ./webapp/seller
         displayName: "Remove unnecessary files"
     
       - publish: $(System.DefaultWorkingDirectory)/
