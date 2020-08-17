@@ -54,3 +54,16 @@ A folder called webapp in this repo works as a template of a web server for each
 Basically, each org will have its own web server that will receive HTTP requests from a frontend first, then the web server will access its own org's blockchain/DLT ledger(i.e. the Fabric peer node for each org) to either query or update data on the ledger and send HTTP responses to the frontend.
 
 **Note**: Practically, running a web server is isloated from a blockchain environment, but make the right REST apis calls to the web server from a frontend does require that the blockchain environment is already setup successfully.
+
+## Web Server Port Numbers
+| Orgnaization     | Port |
+| ----------- | ----------- |
+| Bank | 3001 |
+| Buyer | 3002 |
+| Seller | 3003 |
+
+## Testing ##
+To test if a Fabric Blockchain network as well as Web Servers are up and running, one can type in the below API for Bank in a browser or a tool like Postman for testing.
+```
+http://localhost:3001/sellerBalance
+```
