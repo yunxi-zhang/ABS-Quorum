@@ -5,7 +5,7 @@ var app = express(),
     port = process.env.PORT || 443;
 const bank = require('./routes/bank.js');
 
-app.use('/bank', bank);
+app.use('/', bank);
 app.use(express.json());
 
 app.listen(port, ()=> {

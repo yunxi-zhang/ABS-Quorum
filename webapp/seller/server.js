@@ -5,7 +5,7 @@ var app = express(),
     port = process.env.PORT || 443;
 const seller = require('./routes/seller.js');
 
-app.use('/seller', seller);
+app.use('/', seller);
 app.use(express.json());
 
 app.listen(port, ()=> {
