@@ -43,7 +43,14 @@ stages:
           cd ./webapp/bank
           cat ./web3/web3Setup.js
           npm install
+          npm test
         displayName: 'NPM install for bank'
+
+      - task: PublishTestResults@2
+        condition: succeededOrFailed()
+        inputs:
+          testRunner: JUnit
+          testResultsFiles: '**/TEST-RESULTS.xml'
     
       - script: |
           cp ./web3Setup.js ./webapp/lib/web3
