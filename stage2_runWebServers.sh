@@ -36,6 +36,7 @@ stepInfo "Creating A Web Server for Bank"
 cp -r ./webapp/bank ./webappbank
 cp -r ./webapp/lib/config ./webappbank
 cp -r ./webapp/lib/web3 ./webappbank
+cp ./webapp/package.json ./webappbank
 stepInfo "Show files in webappbank"
 cd ./webappbank
 rm -rf ./lib
