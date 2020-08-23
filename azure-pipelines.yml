@@ -40,6 +40,7 @@ stages:
           cp ./web3Setup.js ./webapp/lib/web3
           cp -r ./webapp/lib/config ./webapp/bank
           cp -r ./webapp/lib/web3 ./webapp/bank
+          cp ./webapp/package.json ./webapp/bank
           cd ./webapp/bank
           cat ./web3/web3Setup.js
           npm install
