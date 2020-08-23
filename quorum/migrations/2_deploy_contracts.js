@@ -20,11 +20,11 @@ module.exports = async function (deployer) {
     // Save addresses in external file
     const contractAddresses = [
         {
-            filename: "./contractAddresses/buyerDeployedContractAddress.txt",  
+            filename: "./contractAddresses/BuyerDeployedContractAddress.txt",  
             content: buyerDeployedContractAddress
         },
         {
-            filename: "./contractAddresses/sellerDeployedContractAddress.txt",  
+            filename: "./contractAddresses/SellerDeployedContractAddress.txt",  
             content: sellerDeployedContractAddress
         }
     ]
