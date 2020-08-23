@@ -34,6 +34,9 @@ stages:
           cp -r ../quorum ../webapp/bank
           cp -r ../quorum ../webapp/buyer
           cp -r ../quorum ../webapp/seller
+          cd ../webapp/bank/quorum/contractAddresses
+          ls -al
+          pwd
         displayName: "Deploy Smart Contracts"
      
       - script: |
