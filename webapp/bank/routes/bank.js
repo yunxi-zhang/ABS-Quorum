@@ -8,17 +8,20 @@ router.use(cors());
 const dotenv = require('dotenv');
 dotenv.config();
 let appInsights = require('applicationinsights');
-appInsights.setup()
-.setAutoDependencyCorrelation(true)
-    .setAutoCollectRequests(true)
-    .setAutoCollectPerformance(true, true)
-    .setAutoCollectExceptions(true)
-    .setAutoCollectDependencies(true)
-    .setAutoCollectConsole(true)
-    .setUseDiskRetryCaching(true)
-    .setSendLiveMetrics(true)
-    .setDistributedTracingMode(appInsights.DistributedTracingModes.AI)
-    .start();
+const { Envelope } = require('applicationinsights/out/Declarations/Contracts');
+if (process.env.APP_INSIGHT_ENABLED === 'true') {
+    appInsights.setup()
+    .setAutoDependencyCorrelation(true)
+        .setAutoCollectRequests(true)
+        .setAutoCollectPerformance(true, true)
+        .setAutoCollectExceptions(true)
+        .setAutoCollectDependencies(true)
+        .setAutoCollectConsole(true)
+        .setUseDiskRetryCaching(true)
+        .setSendLiveMetrics(true)
+        .setDistributedTracingMode(appInsights.DistributedTracingModes.AI)
+        .start();
+}
 
 router.get("/sellerBalance", async (req, res, next) => {
     const balance = await sellerContract.getBalance();

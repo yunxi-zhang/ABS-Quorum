@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node server.js",
-    "test": "env PORT=3001 mocha test --reporter mocha-junit-reporter"
+    "test": "env PORT=3001 APP_INSIGHT_ENABLED=false mocha test --reporter mocha-junit-reporter"
   },
   "author": "",
   "license": "ISC",
