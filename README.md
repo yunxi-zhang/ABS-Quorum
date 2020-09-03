@@ -1,5 +1,5 @@
 ## Repo Description
-This repo is mainly used to run a Quorum DLT network on Azure Blockchain as a Service (ABS) specifically and web services for 3 orgnizations in a Linux or Mac machine so as to set up a local development environment for developers. It can work with my [DLT-Demo-Frontend-App repo](https://github.com/yunxi-zhang/DLT-Demo-Frontend-App) together to be used as a simple DLT demo.
+This repo is mainly used to run a Quorum DLT network on Azure Blockchain as a Service (ABS) specifically and web services for 3 orgnizations in a Linux or Mac machine so as to set up a local development environment for developers. It can work with my [DLT-Demo-Frontend-App repo](https://github.com/yunxi-zhang/DLT-Demo-Frontend-App) together as a simple DLT demo.
 
 ## Prerequisites
 To run this repo, a user has to install the below tools on a local machine.
