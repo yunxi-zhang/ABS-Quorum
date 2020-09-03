@@ -43,11 +43,23 @@ This section clarifies what are the purposes of folders and files used in this r
 |__ <b>common.sh</b>: This shell script defines the styling of information printed out. It is used by other shell script files.
 |__ <b>runAllStepsInOne.sh</b>: This is a shell file that will run all other shell files named in a way like "stageX_{step description}.sh".
 |__ <b>stageX_{step description}.sh</b>: These files are mainly used to automate the setup of a Fabric network in a local machine to quickly set up a local development environment. Details are given in a seperate section later.
+|__ <b>Dockerfile</b>: a file to create docker images for all 3 parties.
+|__ <b>useLocalDockerImage.sh</b>: a shell script file that will build docker images for all 3 parties by using the Dockerfile and auto run the 3 parties' backend apps as docker containers.
 </pre>
 
 ## Shell files: StageX_{step description}
 1. **stage1_deploySmartContracts.sh** is a shell file that will deploy the two Solidity smart contracts by using Truffle commands.
 2. **stage2_runWebServer.sh** will run 3 web servers for 3 organisations respectively.
+
+## Running 3 Web Services as Docker Containers
+1. Run a script file called "runAllStepsInOne.sh", as it will create necessary folders to be used by docker containers.
+```
+./runAllStepsInOne.sh
+```
+2. Run another script file called "useLocalDockerImage.sh".
+```
+./useLocalDockerImage.sh
+```
 
 ## Web Servers
 A folder called webapp in this repo works as a template of a web server for each org.
@@ -55,7 +67,7 @@ Basically, each org will have its own web server that will receive HTTP requests
 
 **Note**: Practically, running a web server is isloated from a blockchain environment, but make the right REST apis calls to the web server from a frontend does require that the blockchain environment is already setup successfully.
 
-## Web Server Port Numbers
+## Web Server Port Numbers (Regardless of whether they run as purely NodeJS web servers or Docker Containers)
 | Orgnaization     | Port |
 | ----------- | ----------- |
 | Bank | 3001 |
