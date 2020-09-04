@@ -82,4 +82,7 @@ Basically, each org will have its own web server that will receive HTTP requests
 To test if a Fabric Blockchain network as well as Web Servers are up and running, one can type in the below API for Bank in a browser or a tool like Postman for testing.
 ```
 http://localhost:3001/sellerBalance
+http://localhost:3001/buyererBalance
+http://localhost:3002/balance
+http://localhost:3003/balance
 ```
