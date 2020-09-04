@@ -52,13 +52,17 @@ This section clarifies what are the purposes of folders and files used in this r
 2. **stage2_runWebServer.sh** will run 3 web servers for 3 organisations respectively.
 
 ## Running 3 Web Services as Docker Containers
-1. Run a script file called "runAllStepsInOne.sh", as it will create necessary folders to be used by docker containers.
+<b>Prerequesite Step</b>: Run a script file called "runAllStepsInOne.sh", as it will create necessary folders to be used by docker containers.
 ```
 ./runAllStepsInOne.sh
 ```
-2. Run another script file called "useLocalDockerImage.sh".
+1. <b>Optoin 1</b>: Run the following script to auto run this app by using a docker compose file. The docker compose file will pull pre-built docker images from the docker hub for all 3 parties. 
 ```
-./useLocalDockerImage.sh
+./useRemoteDockerImages.sh
+```
+2. <b>Option 2</b>: Run another script file called "useLocalDockerImage.sh", it will build docker images locally and run docker containers based on the docker images for all 3 parties.
+```
+./useLocalDockerImages.sh
 ```
 
 ## Web Servers
