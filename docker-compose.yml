@@ -2,24 +2,24 @@ version: '3.8'
 
 services:
   bank-backend:
-    image: yunxizhang/dlt-backend-app-bank:0.1
-    container_name: dlt-backend-app-bank
+    image: yunxizhang/dlt-demo-backend-app-bank:0.1
+    container_name: dlt-demo-backend-app-bank
     volumes: 
       - ${PWD}/webappbank/.env:/app/.env
     ports:
       - 3001:3001
 
   buyer-backend:
-    image: yunxizhang/dlt-backend-app-buyer:0.1
-    container_name: dlt-backend-app-buyer
+    image: yunxizhang/dlt-demo-backend-app-buyer:0.1
+    container_name: dlt-demo-backend-app-buyer
     volumes: 
       - ${PWD}/webappbuyer/.env:/app/.env
     ports:
       - 3002:3002
 
   seller-backend:
-    image: yunxizhang/dlt-backend-app-seller:0.1
-    container_name: dlt-backend-app-seller
+    image: yunxizhang/dlt-demo-backend-app-seller:0.1
+    container_name: dlt-demo-backend-app-seller
     volumes: 
       - ${PWD}/webappseller/.env:/app/.env
     ports:
