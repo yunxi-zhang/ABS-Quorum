@@ -51,7 +51,7 @@ This section clarifies what are the purposes of folders and files used in this r
 1. **stage1_deploySmartContracts.sh** is a shell file that will deploy the two Solidity smart contracts by using Truffle commands.
 2. **stage2_runWebServer.sh** will run 3 web servers for 3 organisations respectively.
 
-## Running 3 Web Services as Docker Containers
+## Run 3 Web Services as Docker Containers
 <b>Prerequesite Step</b>: Run a script file called "runAllStepsInOne.sh", as it will create necessary folders to be used by docker containers.
 ```
 ./runAllStepsInOne.sh
