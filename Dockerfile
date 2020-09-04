@@ -8,6 +8,6 @@ COPY ./routes ./routes
 COPY ./web3 ./web3
 COPY ./server.js ./
 COPY ./package.json ./
-RUN npm install
+COPY ./docker_cmd.sh ./
 
-CMD ["npm", "start"]
+CMD ./docker_cmd.sh

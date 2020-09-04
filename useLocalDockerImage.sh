@@ -17,6 +17,7 @@ mkdir -p ./webappbank/quorum/build
 mkdir -p ./webappbank/quorum/contractAddresses
 cp -r ./quorum/build/* ./webappbank/quorum/build
 cp -r ./quorum/contractAddresses/* ./webappbank/quorum/contractAddresses
+cp ./docker_cmd.sh ./webappbank/docker_cmd.sh
 
 stepInfo "Remove old bank backend app docker image if it exists"
 docker rmi dlt-backend-app-bank:0.1
@@ -32,6 +33,7 @@ mkdir -p ./webappbuyer/quorum/build
 mkdir -p ./webappbuyer/quorum/contractAddresses
 cp -r ./quorum/build/* ./webappbuyer/quorum/build
 cp -r ./quorum/contractAddresses/* ./webappbuyer/quorum/contractAddresses
+cp ./docker_cmd.sh ./webappbuyer/docker_cmd.sh
 
 stepInfo "Remove old buyer backend app docker image if it exists"
 docker rmi dlt-backend-app-buyer:0.1
@@ -47,6 +49,7 @@ mkdir -p ./webappseller/quorum/build
 mkdir -p ./webappseller/quorum/contractAddresses
 cp -r ./quorum/build/* ./webappseller/quorum/build
 cp -r ./quorum/contractAddresses/* ./webappseller/quorum/contractAddresses
+cp ./docker_cmd.sh ./webappseller/docker_cmd.sh
 
 stepInfo "Remove old seller backend app docker image if it exists"
 docker rmi dlt-backend-app-seller:0.1
