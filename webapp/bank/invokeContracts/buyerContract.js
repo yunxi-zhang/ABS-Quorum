@@ -7,6 +7,7 @@ const web3 = getWeb3();
 const getBalance = async () => {
     console.log("1");
     try {
+        console.log("2");
         return await web3.eth.personal.unlockAccount(ADDRESS, PASSWORD, 36000).then(async function (res) {
             console.log("res:", res);
             const myContract = await getContract("Buyer");
