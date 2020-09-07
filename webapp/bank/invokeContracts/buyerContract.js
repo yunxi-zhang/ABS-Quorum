@@ -5,6 +5,7 @@ const { getContract, getWeb3 } = require("../web3/web3Setup");
 const web3 = getWeb3();
 
 const getBalance = async () => {
+    console.log("0");
     try {
         return await web3.eth.personal.unlockAccount(ADDRESS, PASSWORD, 36000).then(async function (res) {
             console.log("1");
