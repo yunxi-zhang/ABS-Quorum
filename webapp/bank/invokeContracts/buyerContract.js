@@ -12,6 +12,7 @@ const getBalance = async () => {
             console.log("2");
             let balance = await myContract.methods.retreiveBalance().call();
             console.log("3")
+            return balance;
         });
     } catch (e) {
         console.log(`Error in getBalance function in BuyerContract: ${e}`);
