@@ -51,4 +51,7 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
+# Helm
+helmChart/values.yaml
+
 # End of https://www.gitignore.io/api/macos
